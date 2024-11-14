@@ -10,6 +10,9 @@ public class Calculator {
         int firstNum = sc.nextInt();
         System.out.print("두 번째 숫자를 입력하세요: ");
         int secondNum = sc.nextInt();
+        System.out.print("사칙연산 기호를 입력하세요: ");
+        char operator = sc.next().charAt(0);
+
     }
 }
 
