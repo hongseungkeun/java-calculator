@@ -4,7 +4,6 @@ import com.sparta.calculator.service.CalculatorService;
 
 public class Application {
     public static void main(String[] args) {
-        CalculatorService calculatorController = new CalculatorService();
-        calculatorController.run();
+        CalculatorService.run();
     }
 }

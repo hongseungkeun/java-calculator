@@ -19,12 +19,12 @@ public class Calculator {
             default -> throw new BadInputException("+,-,*,/ 연산자만 사용 가능합니다.");
         }
 
-        resultStorage.add(result);
+        this.resultStorage.add(result);
         return result;
     }
 
     public List<Integer> getResultStorage() {
-        return new ArrayList<>(resultStorage);
+        return new ArrayList<>(this.resultStorage);
     }
 
     public void removeResult() {
