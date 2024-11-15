@@ -26,4 +26,8 @@ public class Calculator {
     public List<Integer> getResultStorage() {
         return new ArrayList<>(resultStorage);
     }
+
+    public void removeResult() {
+        this.resultStorage.remove(0);
+    }
 }

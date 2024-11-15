@@ -32,6 +32,13 @@ public class Application {
                 System.out.println("결과: " + result);
 
                 System.out.println("저장된 결과들: " + cal.getResultStorage());
+
+                System.out.print("가장 오래된 결과를 삭제하시겠습니까? (yes 입력 시 삭제): ");
+                String deleteCheck = sc.next();
+
+                if (deleteCheck.equals(CONFIRM_DELETE)) {
+                    cal.removeResult();
+                }
             } catch (InputMismatchException e) {
                 System.out.println("양의 정수만 입력해주세요");
             } catch (ArithmeticException e) {
