@@ -1,10 +1,10 @@
 package com.sparta.calculator;
 
-import com.sparta.calculator.controller.CalculatorController;
+import com.sparta.calculator.service.CalculatorService;
 
 public class Application {
     public static void main(String[] args) {
-        CalculatorController calculatorController = new CalculatorController();
+        CalculatorService calculatorController = new CalculatorService();
         calculatorController.run();
     }
 }

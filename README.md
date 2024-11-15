@@ -46,7 +46,7 @@
 ### LV 2. 패키지 구조 (추가)
 ```
 ├── Application.java           // main 메소드를 가진 클래스
-├── controller
+├── service
 │   └── CalculatorService.java // 앱의 실행 흐름 관리 클래스
 ├── domain
 │   └── Calculator.java        // 연산 기능 로직 클래스

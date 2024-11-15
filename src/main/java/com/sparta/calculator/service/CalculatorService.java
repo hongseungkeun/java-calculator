@@ -1,15 +1,15 @@
-package com.sparta.calculator.controller;
+package com.sparta.calculator.service;
 
 import com.sparta.calculator.exception.BadInputException;
-import com.sparta.calculator.service.Calculator;
+import com.sparta.calculator.domain.Calculator;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class CalculatorController {
+public class CalculatorService {
     private final Calculator cal;
 
-    public CalculatorController() {
+    public CalculatorService() {
         this.cal = new Calculator();
     }
 
