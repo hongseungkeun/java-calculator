@@ -22,4 +22,8 @@ public class Calculator {
         resultStorage.add(result);
         return result;
     }
+
+    public List<Integer> getResultStorage() {
+        return new ArrayList<>(resultStorage);
+    }
 }
