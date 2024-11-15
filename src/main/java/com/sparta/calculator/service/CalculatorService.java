@@ -8,9 +8,9 @@ import com.sparta.calculator.view.OutputView;
 import java.util.InputMismatchException;
 
 public class CalculatorService {
-    private final Calculator calculator = new Calculator();
+    private static final Calculator calculator = new Calculator();
 
-    public void run() {
+    public static void run() {
         do {
             try {
                 int firstNum = InputView.getPositiveNum("첫 번째 숫자를 입력하세요: ");
