@@ -42,3 +42,15 @@
 - Calculator 클래스에 저장된 연산 결과들 중 가장 먼저 저장된 데이터를 삭제하는 기능을 가진 메서드를 구현한 후 App 클래스의 main 메서드에 삭제 메서드가 활용될 수 있도록 수정
   - 키워드 : `컬렉션`
     - 컬렉션에서 ‘값을 넣고 제거하는 방법을 이해한다.’가 중요합니다!
+
+### LV 2. 패키지 구조 (추가)
+```
+├── Application.java           // main 메소드를 가진 클래스
+├── controller
+│   └── CalculatorService.java // 앱의 실행 흐름 관리 클래스
+├── domain
+│   └── Calculator.java        // 연산 기능 로직 클래스
+├── view
+│   ├── InputView.java         // 입력 처리 클래스
+│   └── OutputView.java        // 출력 처리 클래스
+```
