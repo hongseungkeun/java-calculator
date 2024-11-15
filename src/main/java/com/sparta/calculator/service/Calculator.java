@@ -1,4 +1,4 @@
-package com.sparta.calculator;
+package com.sparta.calculator.service;
 
 import com.sparta.calculator.exception.BadInputException;
 
