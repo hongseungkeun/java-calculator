@@ -1,5 +1,7 @@
 package com.sparta.calculator;
 
+import com.sparta.calculator.exception.BadInputException;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -32,6 +34,8 @@ public class Application {
                 System.out.println("양의 정수만 입력해주세요");
             } catch (ArithmeticException e) {
                 System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
+            } catch (BadInputException e) {
+                System.out.println(e.getMessage());
             }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
