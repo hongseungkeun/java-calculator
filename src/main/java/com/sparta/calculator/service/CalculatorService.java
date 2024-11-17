@@ -1,6 +1,6 @@
 package com.sparta.calculator.service;
 
-import com.sparta.calculator.domain.Calculator;
+import com.sparta.calculator.domain.ArithmeticCalculator;
 import com.sparta.calculator.exception.BadInputException;
 import com.sparta.calculator.view.InputView;
 import com.sparta.calculator.view.OutputView;
@@ -8,7 +8,7 @@ import com.sparta.calculator.view.OutputView;
 import java.util.InputMismatchException;
 
 public class CalculatorService {
-    private static final Calculator calculator = new Calculator();
+    private static final ArithmeticCalculator calculator = new ArithmeticCalculator();
 
     public static void run() {
         do {
