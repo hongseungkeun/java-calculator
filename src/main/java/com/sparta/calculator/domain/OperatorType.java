@@ -5,18 +5,18 @@ import com.sparta.calculator.exception.BadInputException;
 import java.util.function.BiFunction;
 
 public enum OperatorType {
-    PLUS('+', (a, b) -> a + b),
-    MINUS('-', (a, b) -> a - b),
-    MULTIPLY('*', (a, b) -> a * b),
+    PLUS('+', (a, b) -> a.doubleValue() + b.doubleValue()),
+    MINUS('-', (a, b) -> a.doubleValue() - b.doubleValue()),
+    MULTIPLY('*', (a, b) -> a.doubleValue() * b.doubleValue()),
     DIVIDE('/', (a, b) -> {
-        if (b == 0) throw new ArithmeticException("0으로 나눌 수 없습니다.");
-        return a / b;
+        if (b.doubleValue() == 0.0) throw new ArithmeticException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
+        return a.doubleValue() / b.doubleValue();
     });
 
     private final char operator;
-    private final BiFunction<Integer, Integer, Integer> operation;
+    private final BiFunction<Number, Number, Double> operation;
 
-    OperatorType(char operator, BiFunction<Integer, Integer, Integer> operation) {
+    OperatorType(char operator, BiFunction<Number, Number, Double> operation) {
         this.operator = operator;
         this.operation = operation;
     }
@@ -25,7 +25,7 @@ public enum OperatorType {
         return operator;
     }
 
-    public Integer calculate(Integer a, Integer b) {
+    public double calculate(Number a, Number b) {
         return operation.apply(a, b);
     }
 

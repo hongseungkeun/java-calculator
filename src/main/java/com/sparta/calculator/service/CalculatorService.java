@@ -5,19 +5,17 @@ import com.sparta.calculator.exception.BadInputException;
 import com.sparta.calculator.view.InputView;
 import com.sparta.calculator.view.OutputView;
 
-import java.util.InputMismatchException;
-
 public class CalculatorService {
-    private static final ArithmeticCalculator calculator = new ArithmeticCalculator();
+    private static final ArithmeticCalculator<Number> calculator = new ArithmeticCalculator<>();
 
     public static void run() {
         do {
             try {
-                int firstNum = InputView.getPositiveNum("첫 번째 숫자를 입력하세요: ");
-                int secondNum = InputView.getPositiveNum("두 번째 숫자를 입력하세요: ");
+                Number firstNum = InputView.getPositiveNum("첫 번째 숫자를 입력하세요: ");
+                Number secondNum = InputView.getPositiveNum("두 번째 숫자를 입력하세요: ");
                 char operator = InputView.getOperator();
 
-                int result = calculator.calculate(operator, firstNum, secondNum);
+                double result = calculator.calculate(operator, firstNum, secondNum);
 
                 OutputView.printResult(result);
                 OutputView.printStoredResults(calculator.getResultStorage());
@@ -25,12 +23,7 @@ public class CalculatorService {
                 if (InputView.confirmDelete()) {
                     calculator.removeResult();
                 }
-            } catch (InputMismatchException e) {
-                OutputView.printlnMessage("양의 정수만 입력해주세요");
-                InputView.sc.nextLine();
-            } catch (ArithmeticException e) {
-                OutputView.printlnMessage("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
-            } catch (BadInputException e) {
+            } catch (ArithmeticException | BadInputException | NumberFormatException e) {
                 OutputView.printlnMessage(e.getMessage());
             }
         } while (!InputView.confirmExit());

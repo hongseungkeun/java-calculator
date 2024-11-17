@@ -3,11 +3,11 @@ package com.sparta.calculator.view;
 import java.util.List;
 
 public class OutputView {
-    public static void printResult(int result) {
+    public static void printResult(double result) {
         System.out.println("결과: " + result);
     }
 
-    public static void printStoredResults(List<Integer> results) {
+    public static void printStoredResults(List<Double> results) {
         System.out.println("저장된 결과들: " + results);
     }
 

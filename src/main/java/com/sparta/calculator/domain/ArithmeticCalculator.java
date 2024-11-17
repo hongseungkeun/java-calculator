@@ -3,18 +3,18 @@ package com.sparta.calculator.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArithmeticCalculator {
-    private final List<Integer> resultStorage = new ArrayList<>();
+public class ArithmeticCalculator<T extends Number> {
+    private final List<Double> resultStorage = new ArrayList<>();
 
-    public int calculate(char operator, int firstNum, int secondNum) {
+    public double calculate(char operator, T firstNum, T secondNum) {
         OperatorType operatorType = OperatorType.from(operator);
-        int result = operatorType.calculate(firstNum, secondNum);
+        double result = operatorType.calculate(firstNum, secondNum);
 
         this.resultStorage.add(result);
         return result;
     }
 
-    public List<Integer> getResultStorage() {
+    public List<Double> getResultStorage() {
         return new ArrayList<>(this.resultStorage);
     }
 

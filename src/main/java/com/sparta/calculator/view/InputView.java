@@ -1,21 +1,23 @@
 package com.sparta.calculator.view;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class InputView {
     public static final Scanner sc = new Scanner(System.in);
 
-    public static int getPositiveNum(String prompt) {
+    public static Number getPositiveNum(String prompt) {
         OutputView.printMessage(prompt);
+        String input = sc.next();
 
-        int num = sc.nextInt();
-
-        if (num < 0) {
-            throw new InputMismatchException();
+        try {
+            if (input.contains(".")) {
+                return Double.parseDouble(input);
+            } else {
+                return Integer.parseInt(input);
+            }
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException("유효한 숫자를 입력해주세요.");
         }
-
-        return num;
     }
 
     public static char getOperator() {
