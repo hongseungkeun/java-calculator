@@ -1,7 +1,7 @@
 package com.sparta.calculator.domain;
 
 import com.sparta.calculator.exception.BadInputException;
-import com.sparta.calculator.exception.ExceptionMessageConstant;
+import com.sparta.calculator.exception.ExceptionMessage;
 
 import java.util.function.BiFunction;
 
@@ -10,7 +10,7 @@ public enum OperatorType {
     MINUS('-', (a, b) -> a.doubleValue() - b.doubleValue()),
     MULTIPLY('*', (a, b) -> a.doubleValue() * b.doubleValue()),
     DIVIDE('/', (a, b) -> {
-        if (b.doubleValue() == 0.0) throw new ArithmeticException(ExceptionMessageConstant.INDIVISIBLE_BY_ZERO);
+        if (b.doubleValue() == 0.0) throw new ArithmeticException(ExceptionMessage.INDIVISIBLE_BY_ZERO);
         return a.doubleValue() / b.doubleValue();
     });
 
@@ -36,6 +36,6 @@ public enum OperatorType {
                 return opType;
             }
         }
-        throw new BadInputException(ExceptionMessageConstant.INVALID_OPERATOR);
+        throw new BadInputException(ExceptionMessage.INVALID_OPERATOR);
     }
 }

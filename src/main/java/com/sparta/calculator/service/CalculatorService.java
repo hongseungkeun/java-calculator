@@ -3,7 +3,7 @@ package com.sparta.calculator.service;
 import com.sparta.calculator.domain.ArithmeticCalculator;
 import com.sparta.calculator.exception.BadInputException;
 import com.sparta.calculator.util.InputConsole;
-import com.sparta.calculator.util.ConsoleMessageConstant;
+import com.sparta.calculator.util.ConsoleMessage;
 import com.sparta.calculator.util.OutputConsole;
 
 public class CalculatorService {
@@ -12,8 +12,8 @@ public class CalculatorService {
     public static void run() {
         do {
             try {
-                Number firstNum = InputConsole.getValidNumber(ConsoleMessageConstant.INPUT_FIRST_NUM);
-                Number secondNum = InputConsole.getValidNumber(ConsoleMessageConstant.INPUT_SECOND_NUM);
+                Number firstNum = InputConsole.getValidNumber(ConsoleMessage.INPUT_FIRST_NUM);
+                Number secondNum = InputConsole.getValidNumber(ConsoleMessage.INPUT_SECOND_NUM);
                 char operator = InputConsole.getOperator();
 
                 double result = calculator.calculate(operator, firstNum, secondNum);
@@ -23,7 +23,7 @@ public class CalculatorService {
 
                 if (InputConsole.confirmSelect()) {
                     OutputConsole.printStoredResults(calculator.getResults(
-                            InputConsole.getValidNumber(ConsoleMessageConstant.INPUT_NUM)));
+                            InputConsole.getValidNumber(ConsoleMessage.INPUT_NUM)));
                 }
 
                 if (InputConsole.confirmDelete()) {

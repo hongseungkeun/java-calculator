@@ -1,6 +1,6 @@
 package com.sparta.calculator.util;
 
-import com.sparta.calculator.exception.ExceptionMessageConstant;
+import com.sparta.calculator.exception.ExceptionMessage;
 
 import java.util.Scanner;
 
@@ -23,28 +23,28 @@ public class InputConsole {
                 return Integer.parseInt(input);
             }
         } catch (NumberFormatException e) {
-            throw new NumberFormatException(ExceptionMessageConstant.INVALID_NUM);
+            throw new NumberFormatException(ExceptionMessage.INVALID_NUM);
         }
     }
 
     public static char getOperator() {
-        OutputConsole.printMessage(ConsoleMessageConstant.INPUT_OPERATOR);
+        OutputConsole.printMessage(ConsoleMessage.INPUT_OPERATOR);
 
         return sc.next().charAt(0);
     }
 
     public static boolean confirmSelect() {
-        OutputConsole.printMessage(ConsoleMessageConstant.CONFIRM_SELECT);
+        OutputConsole.printMessage(ConsoleMessage.CONFIRM_SELECT);
         return YES.equalsIgnoreCase(sc.next());
     }
 
     public static boolean confirmDelete() {
-        OutputConsole.printMessage(ConsoleMessageConstant.CONFIRM_DELETE);
+        OutputConsole.printMessage(ConsoleMessage.CONFIRM_DELETE);
         return YES.equalsIgnoreCase(sc.next());
     }
 
     public static boolean confirmExit() {
-        OutputConsole.printMessage(ConsoleMessageConstant.CONFIRM_EXIT);
+        OutputConsole.printMessage(ConsoleMessage.CONFIRM_EXIT);
         return EXIT.equalsIgnoreCase(sc.next());
     }
 }

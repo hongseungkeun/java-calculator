@@ -7,14 +7,14 @@ public class OutputConsole {
     }
 
     public static void printResult(double result) {
-        System.out.println(ConsoleMessageConstant.RESULT + result);
+        System.out.println(ConsoleMessage.RESULT + result);
     }
 
     public static void printStoredResults(List<Double> results) {
         if (results.isEmpty()) {
-            System.out.println(ConsoleMessageConstant.NO_SELECT_OPERATION_RESULT);
+            System.out.println(ConsoleMessage.NO_SELECT_OPERATION_RESULT);
         } else {
-            System.out.println(ConsoleMessageConstant.SELECT_OPERATION_RESULT + results);
+            System.out.println(ConsoleMessage.SELECT_OPERATION_RESULT + results);
         }
     }
 

@@ -1,6 +1,6 @@
 package com.sparta.calculator.util;
 
-public class ConsoleMessageConstant {
+public class ConsoleMessage {
     public static final String INPUT_NUM = "숫자를 입력하세요: ";
     public static final String INPUT_FIRST_NUM = "첫 번째 숫자를 입력하세요: ";
     public static final String INPUT_SECOND_NUM = "두 번째 숫자를 입력하세요: ";
