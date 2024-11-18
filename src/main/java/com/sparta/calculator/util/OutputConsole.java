@@ -1,17 +1,20 @@
-package com.sparta.calculator.view;
+package com.sparta.calculator.util;
 
 import java.util.List;
 
-public class OutputView {
+public class OutputConsole {
+    private OutputConsole() {
+    }
+
     public static void printResult(double result) {
-        System.out.println("결과: " + result);
+        System.out.println(ConsoleMessageConstant.RESULT + result);
     }
 
     public static void printStoredResults(List<Double> results) {
         if (results.isEmpty()) {
-            System.out.println("연산 결과 조회: 없음");
+            System.out.println(ConsoleMessageConstant.NO_SELECT_OPERATION_RESULT);
         } else {
-            System.out.println("연산 결과 조회: " + results);
+            System.out.println(ConsoleMessageConstant.SELECT_OPERATION_RESULT + results);
         }
     }
 

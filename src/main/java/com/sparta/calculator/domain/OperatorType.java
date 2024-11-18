@@ -1,6 +1,7 @@
 package com.sparta.calculator.domain;
 
 import com.sparta.calculator.exception.BadInputException;
+import com.sparta.calculator.exception.ExceptionMessageConstant;
 
 import java.util.function.BiFunction;
 
@@ -9,7 +10,7 @@ public enum OperatorType {
     MINUS('-', (a, b) -> a.doubleValue() - b.doubleValue()),
     MULTIPLY('*', (a, b) -> a.doubleValue() * b.doubleValue()),
     DIVIDE('/', (a, b) -> {
-        if (b.doubleValue() == 0.0) throw new ArithmeticException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
+        if (b.doubleValue() == 0.0) throw new ArithmeticException(ExceptionMessageConstant.INDIVISIBLE_BY_ZERO);
         return a.doubleValue() / b.doubleValue();
     });
 
@@ -35,6 +36,6 @@ public enum OperatorType {
                 return opType;
             }
         }
-        throw new BadInputException("+,-,*,/ 연산자만 사용 가능합니다.");
+        throw new BadInputException(ExceptionMessageConstant.INVALID_OPERATOR);
     }
 }

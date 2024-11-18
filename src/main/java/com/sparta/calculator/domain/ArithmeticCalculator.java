@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArithmeticCalculator<T extends Number> {
+    private static final int INDEX_ZERO = 0;
+
     private final List<Double> resultStorage = new ArrayList<>();
 
     public double calculate(char operator, T firstNum, T secondNum) {
@@ -26,6 +28,6 @@ public class ArithmeticCalculator<T extends Number> {
     }
 
     public void removeResult() {
-        this.resultStorage.remove(0);
+        this.resultStorage.remove(INDEX_ZERO);
     }
 }

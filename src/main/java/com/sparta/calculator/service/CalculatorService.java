@@ -2,8 +2,9 @@ package com.sparta.calculator.service;
 
 import com.sparta.calculator.domain.ArithmeticCalculator;
 import com.sparta.calculator.exception.BadInputException;
-import com.sparta.calculator.view.InputView;
-import com.sparta.calculator.view.OutputView;
+import com.sparta.calculator.util.InputConsole;
+import com.sparta.calculator.util.ConsoleMessageConstant;
+import com.sparta.calculator.util.OutputConsole;
 
 public class CalculatorService {
     private static final ArithmeticCalculator<Number> calculator = new ArithmeticCalculator<>();
@@ -11,25 +12,26 @@ public class CalculatorService {
     public static void run() {
         do {
             try {
-                Number firstNum = InputView.getPositiveNum("첫 번째 숫자를 입력하세요: ");
-                Number secondNum = InputView.getPositiveNum("두 번째 숫자를 입력하세요: ");
-                char operator = InputView.getOperator();
+                Number firstNum = InputConsole.getPositiveNum(ConsoleMessageConstant.INPUT_FIRST_NUM);
+                Number secondNum = InputConsole.getPositiveNum(ConsoleMessageConstant.INPUT_SECOND_NUM);
+                char operator = InputConsole.getOperator();
 
                 double result = calculator.calculate(operator, firstNum, secondNum);
 
-                OutputView.printResult(result);
-                OutputView.printStoredResults(calculator.getResults());
+                OutputConsole.printResult(result);
+                OutputConsole.printStoredResults(calculator.getResults());
 
-                if (InputView.confirmSelect()) {
-                    OutputView.printStoredResults(calculator.getResults(InputView.getPositiveNum("숫자를 입력하세요: ")));
+                if (InputConsole.confirmSelect()) {
+                    OutputConsole.printStoredResults(calculator.getResults(
+                            InputConsole.getPositiveNum(ConsoleMessageConstant.INPUT_NUM)));
                 }
 
-                if (InputView.confirmDelete()) {
+                if (InputConsole.confirmDelete()) {
                     calculator.removeResult();
                 }
             } catch (ArithmeticException | BadInputException | NumberFormatException e) {
-                OutputView.printlnMessage(e.getMessage());
+                OutputConsole.printlnMessage(e.getMessage());
             }
-        } while (!InputView.confirmExit());
+        } while (!InputConsole.confirmExit());
     }
 }
