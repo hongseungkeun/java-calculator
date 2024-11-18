@@ -12,8 +12,8 @@ public class CalculatorService {
     public static void run() {
         do {
             try {
-                Number firstNum = InputConsole.getPositiveNum(ConsoleMessageConstant.INPUT_FIRST_NUM);
-                Number secondNum = InputConsole.getPositiveNum(ConsoleMessageConstant.INPUT_SECOND_NUM);
+                Number firstNum = InputConsole.getValidNumber(ConsoleMessageConstant.INPUT_FIRST_NUM);
+                Number secondNum = InputConsole.getValidNumber(ConsoleMessageConstant.INPUT_SECOND_NUM);
                 char operator = InputConsole.getOperator();
 
                 double result = calculator.calculate(operator, firstNum, secondNum);
@@ -23,7 +23,7 @@ public class CalculatorService {
 
                 if (InputConsole.confirmSelect()) {
                     OutputConsole.printStoredResults(calculator.getResults(
-                            InputConsole.getPositiveNum(ConsoleMessageConstant.INPUT_NUM)));
+                            InputConsole.getValidNumber(ConsoleMessageConstant.INPUT_NUM)));
                 }
 
                 if (InputConsole.confirmDelete()) {

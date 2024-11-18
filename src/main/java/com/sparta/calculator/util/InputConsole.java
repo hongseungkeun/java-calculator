@@ -12,7 +12,7 @@ public class InputConsole {
     private InputConsole() {
     }
 
-    public static Number getPositiveNum(String prompt) {
+    public static Number getValidNumber(String prompt) {
         OutputConsole.printMessage(prompt);
         String input = sc.next();
 
