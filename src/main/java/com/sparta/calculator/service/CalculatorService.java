@@ -18,7 +18,11 @@ public class CalculatorService {
                 double result = calculator.calculate(operator, firstNum, secondNum);
 
                 OutputView.printResult(result);
-                OutputView.printStoredResults(calculator.getResultStorage());
+                OutputView.printStoredResults(calculator.getResults());
+
+                if (InputView.confirmSelect()) {
+                    OutputView.printStoredResults(calculator.getResults(InputView.getPositiveNum("숫자를 입력하세요: ")));
+                }
 
                 if (InputView.confirmDelete()) {
                     calculator.removeResult();

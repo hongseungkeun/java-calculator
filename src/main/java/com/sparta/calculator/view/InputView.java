@@ -26,6 +26,11 @@ public class InputView {
         return sc.next().charAt(0);
     }
 
+    public static boolean confirmSelect() {
+        OutputView.printMessage("특정 값보다 큰 연산 결과들을 조회하시겠습니까? (yes 입력 시 조회): ");
+        return "yes".equalsIgnoreCase(sc.next());
+    }
+
     public static boolean confirmDelete() {
         OutputView.printMessage("가장 오래된 결과를 삭제하시겠습니까? (yes 입력 시 삭제): ");
         return "yes".equalsIgnoreCase(sc.next());

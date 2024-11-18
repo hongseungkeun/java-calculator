@@ -14,8 +14,15 @@ public class ArithmeticCalculator<T extends Number> {
         return result;
     }
 
-    public List<Double> getResultStorage() {
+    public List<Double> getResults() {
         return new ArrayList<>(this.resultStorage);
+    }
+
+    public List<Double> getResults(T inputValue) {
+        return new ArrayList<>(this.resultStorage)
+                .stream()
+                .filter(a -> inputValue.doubleValue() < a)
+                .toList();
     }
 
     public void removeResult() {

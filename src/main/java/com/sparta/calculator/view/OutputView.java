@@ -8,7 +8,11 @@ public class OutputView {
     }
 
     public static void printStoredResults(List<Double> results) {
-        System.out.println("저장된 결과들: " + results);
+        if (results.isEmpty()) {
+            System.out.println("연산 결과 조회: 없음");
+        } else {
+            System.out.println("연산 결과 조회: " + results);
+        }
     }
 
     public static void printMessage(String message) {
