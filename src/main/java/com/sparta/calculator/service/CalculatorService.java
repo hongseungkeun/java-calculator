@@ -6,6 +6,8 @@ import com.sparta.calculator.util.InputConsole;
 import com.sparta.calculator.util.ConsoleMessage;
 import com.sparta.calculator.util.OutputConsole;
 
+import java.math.BigDecimal;
+
 public class CalculatorService {
     private static final ArithmeticCalculator<Number> calculator = new ArithmeticCalculator<>();
 
@@ -16,7 +18,7 @@ public class CalculatorService {
                 Number secondNum = InputConsole.getValidNumber(ConsoleMessage.INPUT_SECOND_NUM);
                 char operator = InputConsole.getOperator();
 
-                double result = calculator.calculate(operator, firstNum, secondNum);
+                BigDecimal result = calculator.calculate(operator, firstNum, secondNum);
 
                 OutputConsole.printResult(result);
                 OutputConsole.printStoredResults(calculator.getResults());

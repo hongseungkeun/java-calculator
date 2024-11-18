@@ -1,28 +1,29 @@
 package com.sparta.calculator.domain;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ArithmeticCalculator<T extends Number> {
     private static final int OLDEST_RESULT_INDEX = 0;
 
-    private final List<Double> resultStorage = new ArrayList<>();
+    private final List<BigDecimal> resultStorage = new ArrayList<>();
 
-    public double calculate(char operator, T firstNum, T secondNum) {
+    public BigDecimal calculate(char operator, T firstNum, T secondNum) {
         OperatorType operatorType = OperatorType.from(operator);
-        double result = operatorType.calculate(firstNum, secondNum);
+        BigDecimal result = operatorType.calculate(firstNum, secondNum);
 
         this.resultStorage.add(result);
         return result;
     }
 
-    public List<Double> getResults() {
+    public List<BigDecimal> getResults() {
         return new ArrayList<>(this.resultStorage);
     }
 
-    public List<Double> getResults(T inputValue) {
+    public List<BigDecimal> getResults(T inputValue) {
         return this.resultStorage.stream()
-                .filter(a -> inputValue.doubleValue() < a)
+                .filter(a -> a.compareTo(OperatorType.toBigDecimal(inputValue)) > 0)
                 .toList();
     }
 
