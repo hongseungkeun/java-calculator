@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArithmeticCalculator<T extends Number> {
-    private static final int INDEX_ZERO = 0;
+    private static final int OLDEST_RESULT_INDEX = 0;
 
     private final List<Double> resultStorage = new ArrayList<>();
 
@@ -21,13 +21,12 @@ public class ArithmeticCalculator<T extends Number> {
     }
 
     public List<Double> getResults(T inputValue) {
-        return new ArrayList<>(this.resultStorage)
-                .stream()
+        return this.resultStorage.stream()
                 .filter(a -> inputValue.doubleValue() < a)
                 .toList();
     }
 
     public void removeResult() {
-        this.resultStorage.remove(INDEX_ZERO);
+        this.resultStorage.remove(OLDEST_RESULT_INDEX);
     }
 }
